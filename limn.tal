@@ -1,0 +1,43 @@
+
+|100
+@on-reset ( -> )
+
+
+
+@parse-pgm ( fn* -> )
+	./readptr STR2
+
+	&read ( -> v )
+		LIT2 &readptr $2 JSR2 JMP2r
+
+	/read "P NEQ ?{  }
+	/read "5 NEQ ?{  }
+
+
+@dummy-read ( -> v )
+	;readptr LDA2
+	INC2k ;readptr STA2
+	;testpgm ADD2 LDA JMP2r
+
+@readptr 0000
+
+@testpgm
+	"P5 0a
+	"16 20 "16 0a
+	"255 0a
+	00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+	11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 
+	22 22 22 22 22 22 22 22 22 22 22 22 22 22 22 22 
+	33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 
+	44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44
+	55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55
+	66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66
+	77 77 77 77 77 77 77 77 77 77 77 77 77 77 77 77 
+	88 88 88 88 88 88 88 88 88 88 88 88 88 88 88 88
+	99 99 99 99 99 99 99 99 99 99 99 99 99 99 99 99 
+	aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa 
+	bb bb bb bb bb bb bb bb bb bb bb bb bb bb bb bb 
+	cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc 
+	dd dd dd dd dd dd dd dd dd dd dd dd dd dd dd dd 
+	ee ee ee ee ee ee ee ee ee ee ee ee ee ee ee ee 
+	ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 
